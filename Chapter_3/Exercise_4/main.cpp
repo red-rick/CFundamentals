@@ -13,13 +13,17 @@ int main()
 	cin >> worldPopulation;
 	cout << "Enter the population of the US: ";
 	cin >> theUSAPopulation;
-	cout << "The population of the US is " << percentsOfWorldPopulation(worldPopulation, theUSAPopulation) << " of the world population.\n"
-		 << "You can use the Internet to get more recent figures.";
+	if ( (worldPopulation < 0) || (theUSAPopulation < 0) ) {
+		cout <<  "Error: incorrect values";
+	} else {
+		cout << "The population of the US is " << percentsOfWorldPopulation( worldPopulation, theUSAPopulation ) << " of the world population.\n"
+			 << "You can use the Internet to get more recent figures.";
+	}
 	_getch();
 	return 0;
 }
 
 long double percentsOfWorldPopulation( const long long &world, const long long &theUSA)
 {
-	return ( ( long double (theUSA) / long double (world) ) * 100.0L );
+	return ( (long double (theUSA) / long double (world)) * 100.0L );
 }
