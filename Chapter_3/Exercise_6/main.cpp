@@ -10,7 +10,7 @@ int main()
 {
 	using namespace std;
 	double gasoline;
-	cout << "How many liters of gasoline has your car spent per 100km: ";
+	cout << "How many liters of gasoline your car spends per 100km: ";
 	cin >> gasoline;
 	if ( gasoline < 0.0 ) {
 		cout << "Error: Incorrect value";
