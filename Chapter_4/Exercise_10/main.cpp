@@ -13,7 +13,7 @@ int main()
 
 	float average = (results[0] + results[1] + results[2]) / 3.0f;
 
-	std::cout << "Your results: 1) " << results[0] << "s 2) " << results[1] << "s 3) " << results[2] << "s\n";
+	std::cout << "Your results:\n1) " << results[0] << "s\n 2) " << results[1] << "s\n 3) " << results[2] << "s\n";
 	std::cout << "Average: " <<  average;
 
 	_getch();
