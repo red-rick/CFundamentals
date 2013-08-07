@@ -14,9 +14,18 @@ int main()
 	}; 
 	
 	CandyBar *candies = new CandyBar[kCandiesCount];
-	candies[0] = {"Mocha Munch", 2.3, 350};
-	candies[1] = {"Ice", 3.4, 100};
-	candies[2] = {"Lukum", 2.5, 157};
+
+	strcpy(candies[0].brand , "Mocha Munch");
+	strcpy(candies[1].brand , "Ice");
+	strcpy(candies[2].brand , "Lukum");
+
+	candies[0].weight = 2.3;
+	candies[1].weight = 3.4;
+	candies[2].weight = 2.5;
+
+	candies[0].calories = 350;
+	candies[1].calories = 100;
+	candies[2].calories = 157;
 
 	std::cout << "We have such candies:\n";
 	for (int i = 0; i < kCandiesCount; i++)
