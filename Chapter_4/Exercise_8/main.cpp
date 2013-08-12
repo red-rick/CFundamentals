@@ -25,6 +25,7 @@ int main()
 	std::cout << "\nYou choise is:\n\nCompany: " << customPizza->company
 		<< "\nDiameter: " << customPizza->diameter << "\nWeight: " << customPizza->weight;
 
+	delete customPizza;
 	_getch();
 	return 0;
 }

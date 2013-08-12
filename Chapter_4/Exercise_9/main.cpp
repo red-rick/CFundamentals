@@ -34,6 +34,7 @@ int main()
 			<< "\nWeight: " << candies[i].weight << "\nCalories: " << candies[i].calories << "\n\n";
 	}
 
+	delete [] candies;
 	_getch();
 	return 0;
 }
