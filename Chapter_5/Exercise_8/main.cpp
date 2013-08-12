@@ -5,7 +5,7 @@ const int kArSize = 20;
 int main()
 {
 	char str[kArSize];
-	const char finishFlag[] = "done";
+	const char * finishFlag = "done";
 	std::cout << "Enter words (to stopm type the word \'done\'):\n";
 	std::cin >> str;
 	int counter = 0;

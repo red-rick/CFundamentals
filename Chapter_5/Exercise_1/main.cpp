@@ -13,11 +13,11 @@ int main()
 	}
 
 	int sum = 0;
-	max++;
-	for (int i = min; i < max; i++) 
+
+	for (int i = min; i <= max; i++) 
 		sum +=i;
 
-	std::cout << "Sum of all the integers between "<< min << " and " << --max << " is " << sum;
+	std::cout << "Sum of all the integers between "<< min << " and " << max << " is " << sum;
 
 	std::cin.get();
 	std::cin.get();
