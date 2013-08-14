@@ -52,7 +52,12 @@ bool Slist::addItem(const Item &itm)
 }
 
 
-bool Slist::isEmpty()
+bool Slist::isEmpty() const
 {
-	return (top != 0);
+	return (top == 0);
+}
+
+bool Slist::isFull() const
+{
+	return (top == MAX);
 }
