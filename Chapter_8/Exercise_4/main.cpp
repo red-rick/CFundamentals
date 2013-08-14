@@ -28,6 +28,7 @@ int main()
 	show("Done!");
 
 	cin.get();
+	delete beany.str;
 	return 0;
 }
 
