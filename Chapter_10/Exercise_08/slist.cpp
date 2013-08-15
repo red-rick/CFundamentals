@@ -10,8 +10,9 @@ private:
 public:
 	Node() { m_prev = NULL; m_next = NULL; }
 	Node(const Item &itm) { m_prev = NULL; m_next = NULL; m_itm = itm; }
-	Node *getPrev() { return m_prev; }
-	Node *getNext() {return m_next; }
+	Node *getPrev() const { return m_prev; }
+	Node *getNext() const {return m_next; }
+	Item &getItem() { return m_itm; }
 	void setPrev(Node *prev) { m_prev = prev; }
 	void setNext(Node *next) { m_next = next; }
 };
@@ -19,7 +20,7 @@ public:
 
 Slist::Slist(void)
 {
-	int top = 0;
+	top = 0;
 }
 
 
@@ -51,13 +52,11 @@ bool Slist::addItem(const Item &itm)
 	}
 }
 
-
-bool Slist::isEmpty() const
+void Slist::visit(tpf f)
 {
-	return (top == 0);
-}
-
-bool Slist::isFull() const
-{
-	return (top == MAX);
+	Node *node = head;
+	while(node != NULL) {
+		f(node->getItem());
+		node = node->getNext();
+	}
 }

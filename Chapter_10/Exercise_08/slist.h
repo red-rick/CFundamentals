@@ -3,7 +3,7 @@
 class Node;
 
 typedef double Item;
-typedef tpf void (*pf)(Item &);
+typedef void (*tpf)(Item &);
 
 class Slist
 {
@@ -16,8 +16,8 @@ public:
 	Slist();
 	~Slist(void);
 	bool addItem(const Item &);
-	bool isEmpty() const;
-	bool isFull() const;
+	bool isEmpty() const { return (top == 0);}
+	bool isFull() const { return (top == MAX); }
 	void visit(tpf f);
 };
 
