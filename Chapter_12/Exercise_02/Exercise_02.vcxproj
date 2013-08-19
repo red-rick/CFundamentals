@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5E88E936-75D9-4BD3-B3FC-2548F305445D}</ProjectGuid>
-    <RootNamespace>Exercise_01</RootNamespace>
+    <ProjectGuid>{F651D349-140D-4529-9C2C-ACDD2B4C10D2}</ProjectGuid>
+    <RootNamespace>Exercise_02</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -60,11 +60,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="string2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cow.h" />
+    <ClInclude Include="string2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
