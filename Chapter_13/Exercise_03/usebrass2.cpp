@@ -3,7 +3,8 @@
 #include <iostream>
 #include <string>
 #include "dma.h"
-const int CLIENTS = 4;
+const int OBJECTS = 4;
+const int kLen = 40;
 
 int main()
 {
@@ -11,50 +12,52 @@ int main()
    using std::cout;
    using std::endl;
 
-   abb * p_clients[CLIENTS];
-   std::string temp;
-   long tempnum;
+   abb * p_objects[OBJECTS];
+   char temp1[kLen];
+   int tempnum;
    double tempbal;
    char kind;
 
-   for (int i = 0; i < CLIENTS; i++)
+   for (int i = 0; i < OBJECTS; i++)
    {
-       cout << "Enter client's name: ";
-       getline(cin,temp);
-       cout << "Enter client's account number: ";
+       cout << "Enter label: ";
+	   cin.getline(temp1, kLen);
+       cout << "Enter rating: ";
        cin >> tempnum;
-       cout << "Enter opening balance: $";
-       cin >> tempbal;
-       cout << "Enter 1 for Brass Account or "
-            << "2 for BrassPlus Account: ";
-       while (cin >> kind && (kind != '1' && kind != '2'))
-           cout <<"Enter either 1 or 2: ";
+       cout << "Enter 1 for baseDMA, 2 for lacksDMA or"
+            << " 3 for BrassPlus Account: ";
+       while (cin >> kind && (kind != '1' && kind != '2' && kind != '3'))
+           cout <<"Enter either 1, 2 or 3: ";
        if (kind == '1')
-           p_clients[i] = new Brass(temp, tempnum, tempbal);
-       else
+           p_objects[i] = new baseDMA(temp1, tempnum);
+       else if (kind == '2')
        {
-           double tmax, trate;
-           cout << "Enter the overdraft limit: $";
-           cin >> tmax;
-           cout << "Enter the interest rate "
-                << "as a decimal fraction: ";
-           cin >> trate;
-           p_clients[i] = new BrassPlus(temp, tempnum, tempbal,
-                                        tmax, trate);
+		   char temp2[kLen];
+		   cout << "Enter color: ";
+		   cin.getline(temp2, kLen);
+           p_objects[i] = new lacksDMA(temp1, temp2, tempnum);
         }
+	   else
+	   {
+		    char temp3[kLen];
+		    cout << "Enter style: ";
+			cin.getline(temp3, kLen);
+			p_objects[i] = new hasDMA(temp1, temp3, tempnum);
+
+	   }
         while (cin.get() != '\n')
             continue;
    }
    cout << endl;
-   for (int i = 0; i < CLIENTS; i++)
+   for (int i = 0; i < OBJECTS; i++)
    {
-       p_clients[i]->View();
+       p_objects[i]->View();
        cout << endl;
    }
               
-   for (int i = 0; i < CLIENTS; i++)
+   for (int i = 0; i < OBJECTS; i++)
    {
-       delete p_clients[i];  // free memory
+       delete p_objects[i];  // free memory
    }
    cout << "Done.\n";         
 

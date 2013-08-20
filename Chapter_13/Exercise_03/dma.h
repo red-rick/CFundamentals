@@ -6,8 +6,9 @@
 class abb
 {
 public:
-	virtual void View() = 0;
-}
+	virtual void View() const = 0;
+	virtual ~abb();
+};
 
 //  Base Class Using DMA
 class baseDMA: public abb
@@ -19,9 +20,10 @@ private:
 public:
     baseDMA(const char * l = "null", int r = 0);
     baseDMA(const baseDMA & rs);
-    virtual ~baseDMA();
+    ~baseDMA();
+	void View() const;
     baseDMA & operator=(const baseDMA & rs);
-	virtual void View();
+	friend std::ostream & operator<<(std::ostream & os, const baseDMA & rs);
 };
 
 // derived class without DMA
@@ -37,6 +39,8 @@ public:
     lacksDMA(const char * c = "blank", const char * l = "null",
               int r = 0);
     lacksDMA(const char * c, const baseDMA & rs);;
+	void View() const;
+	friend std::ostream & operator<<(std::ostream & os, const lacksDMA & ls);
 };
 
 // derived class with DMA
@@ -51,6 +55,8 @@ public:
     hasDMA(const hasDMA & hs);
     ~hasDMA();
     hasDMA & operator=(const hasDMA & rs);  
+	void View() const;
+	friend std::ostream & operator<<(std::ostream & os, const hasDMA & hs);
 };
 
 #endif

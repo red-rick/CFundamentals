@@ -3,6 +3,11 @@
 #include "dma.h"
 #include <cstring>
 
+abb::~abb()
+{
+
+}
+
 // baseDMA methods
 baseDMA::baseDMA(const char * l, int r)
 {
@@ -41,6 +46,11 @@ std::ostream & operator<<(std::ostream & os, const baseDMA & rs)
     return os;
 }
 
+void baseDMA::View() const
+{
+	std::cout << *this;
+}
+
 // lacksDMA methods
 lacksDMA::lacksDMA(const char * c, const char * l, int r)
     : baseDMA(l, r)
@@ -54,6 +64,11 @@ lacksDMA::lacksDMA(const char * c, const baseDMA & rs)
 {
     std::strncpy(color, c, COL_LEN - 1);
     color[COL_LEN - 1] = '\0';
+}
+
+void lacksDMA::View() const
+{
+	std::cout << *this;
 }
 
 std::ostream & operator<<(std::ostream & os, const lacksDMA & ls)
@@ -100,6 +115,12 @@ hasDMA & hasDMA::operator=(const hasDMA & hs)
     std::strcpy(style, hs.style);
     return *this;
 }
+
+void hasDMA::View() const
+{
+	std::cout << *this;
+}
+
     
 std::ostream & operator<<(std::ostream & os, const hasDMA & hs)
 {
